@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondobien"
+    tools:context=".RandomInfinito">
+
+    <ImageButton
+        android:id="@+id/barco"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarBarco"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzbarco"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <ImageButton
+        android:id="@+id/cubo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarCubo"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzcubo"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="136dp" />
+
+    <ImageButton
+        android:id="@+id/elefante"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarElefante"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzelefante"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="283dp" />
+
+    <ImageButton
+        android:id="@+id/flor"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarFlor"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzflor"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <ImageButton
+        android:id="@+id/globo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarGlobo"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzglobo"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="354dp" />
+
+    <ImageView
+        android:id="@+id/nivelesSuperados"
+        android:layout_width="68dp"
+        android:layout_height="57dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cero" />
+
+    <ImageView
+        android:id="@+id/nivelesSuperadosDecenas"
+        android:layout_width="68dp"
+        android:layout_height="57dp"
+        android:layout_marginEnd="-20dp"
+        app:layout_constraintEnd_toStartOf="@+id/nivelesSuperados"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cero" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/roto"
+        android:fontFamily="casual"
+        android:text="Niveles superados"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/nivelesSuperadosDecenas"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/helicoptro"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarHelicoptro"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzhelicoptro"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="151dp" />
+
+    <ImageButton
+        android:id="@+id/piramide"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarPiramide"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzpiramide"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="130dp" />
+
+    <ImageButton
+        android:id="@+id/robot"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarRobot"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzrobot"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="233dp" />
+
+    <ImageButton
+        android:id="@+id/tambor"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarTambor"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zztambor"
+        tools:layout_editor_absoluteX="173dp"
+        tools:layout_editor_absoluteY="252dp" />
+
+    <Button
+        android:id="@+id/salirButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F8F8F8"
+        android:gravity="center"
+        android:onClick="goInicio"
+        android:text="SALIR"
+        android:textColor="#000000"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        app:icon="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

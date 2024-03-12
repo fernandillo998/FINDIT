@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/roto"
+    tools:context=".CuentaCero">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="257dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="200dp"
+        android:fontFamily="casual"
+        android:text="SE ACABO EL TIEMPO!"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/iniciarJuego"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:backgroundTint="#F8F8F8"
+        android:gravity="center"
+        android:onClick="goInicio"
+        android:text="CAMBIAR MODO"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:icon="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/repetirButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F8F8F8"
+        android:gravity="center"
+        android:onClick="goCuentaAtras"
+        android:text="REINTENTAR"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:icon="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/iniciarJuego"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FindIt"
+        tools:targetApi="31">
+        <activity
+            android:name=".RandomInfinitoInstrucciones"
+            android:exported="false" />
+        <activity
+            android:name=".RandomInfinito"
+            android:exported="false" />
+        <activity
+            android:name=".RandomDificilInstrucciones"
+            android:exported="false" />
+        <activity
+            android:name=".RandomCuentaCero"
+            android:exported="false" />
+        <activity
+            android:name=".RandomDificil"
+            android:exported="false" />
+        <activity
+            android:name=".RandomInstrucciones"
+            android:exported="false" />
+        <activity
+            android:name=".RandomFacilDificil"
+            android:exported="false" />
+        <activity
+            android:name=".RandomLevel"
+            android:exported="false" />
+        <activity
+            android:name=".FlashDificilInstrucciones"
+            android:exported="false" />
+        <activity
+            android:name=".FlashFacilDificil"
+            android:exported="false" />
+        <activity
+            android:name=".FlashDificil"
+            android:exported="false" />
+        <activity
+            android:name=".CuentaCero"
+            android:exported="false" />
+        <activity
+            android:name=".FlashEnhorabuena"
+            android:exported="false" />
+        <activity
+            android:name=".CuentaAtras"
+            android:exported="false" />
+        <activity
+            android:name=".FlashInstrucciones"
+            android:exported="false" />
+        <activity
+            android:name=".FlashLevel"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

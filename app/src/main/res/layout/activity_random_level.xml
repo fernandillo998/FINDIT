@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondobien"
+    tools:context=".RandomLevel">
+
+    <ImageView
+        android:id="@+id/contador"
+        android:layout_width="68dp"
+        android:layout_height="57dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nuevenueve" />
+
+    <ImageButton
+        android:id="@+id/barco"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarBarco"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzbarco"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <ImageButton
+        android:id="@+id/cubo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarCubo"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzcubo"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="136dp" />
+
+    <ImageButton
+        android:id="@+id/elefante"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarElefante"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzelefante"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="283dp" />
+
+    <ImageButton
+        android:id="@+id/flor"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarFlor"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzflor"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <ImageButton
+        android:id="@+id/globo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:onClick="alTocarGlobo"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/zzglobo"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="354dp" />
+
+    <ImageView
+        android:id="@+id/nivelesSuperados"
+        android:layout_width="68dp"
+        android:layout_height="57dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cero" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/roto"
+        android:fontFamily="casual"
+        android:text="Niveles superados"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/nivelesSuperados"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

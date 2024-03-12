@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondoreal"
+    tools:context=".FlashDificil">
+
+    <ImageButton
+        android:id="@+id/estrella"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="alTocarEstrella"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/estrellazul"
+        tools:layout_editor_absoluteY="361dp" />
+
+    <ImageButton
+        android:id="@+id/pezAmarilloNaranja"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="alTocarAmarillo"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/amarillonaranja"
+        tools:layout_editor_absoluteY="60dp" />
+
+    <ImageButton
+        android:id="@+id/doriButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="alTocarDori"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/dori"
+        tools:layout_editor_absoluteY="301dp" />
+
+    <ImageButton
+        android:id="@+id/blanquimoraoButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="alTocarBlanquimorao"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/blanquimorao"
+        tools:layout_editor_absoluteY="181dp" />
+
+    <ImageView
+        android:id="@+id/contador"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nuevenueve" />
+
+    <ImageButton
+        android:id="@+id/pezralla"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="alTocarPezralla"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/pezrallas"
+        tools:layout_editor_absoluteY="542dp" />
+
+    <ImageButton
+        android:id="@+id/ballenaButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="alTocarBallena"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/ballena"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <ImageButton
+        android:id="@+id/payaso"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="alTocarPayaso"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/payaso"
+        tools:layout_editor_absoluteY="482dp" />
+
+    <ImageButton
+        android:id="@+id/morao"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="alTocarMorao"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/moraopez"
+        tools:layout_editor_absoluteY="421dp" />
+
+    <ImageButton
+        android:id="@+id/callaboButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="alTocarCallabo"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/calalbo"
+        tools:layout_editor_absoluteY="241dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
