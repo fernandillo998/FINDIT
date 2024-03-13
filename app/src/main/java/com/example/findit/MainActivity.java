@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.midnightride);
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.inicio);
         mediaPlayer.start();
     }
 
