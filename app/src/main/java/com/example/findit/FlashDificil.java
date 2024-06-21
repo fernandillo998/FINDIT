@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -50,21 +51,29 @@ public class FlashDificil extends AppCompatActivity {
 
     private long elapsedTime;
 
-    public long getElapsedTime() {
-        return elapsedTime;
-    }
     List<ImageButton> botones;
+
+    MusicManager musicManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_dificil);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        musicManager = MusicManager.getInstance(this);
+
+        musicManager.stopMusic();
+
+        musicManager.startMusic(this,R.raw.mar);
 
         dificil = true;
 
@@ -259,64 +268,55 @@ public class FlashDificil extends AppCompatActivity {
     }
 
     public void alTocarAmarillo(View pez){
-        //        pez.animate().alpha(1).setDuration(0).start();
-//        pez.setEnabled(false);
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.popcorto);
         pez.setVisibility(View.GONE);
         ama = true;
     }
 
     public void alTocarBallena(View pez){
-        //        pez.animate().alpha(1).setDuration(0).start();
-//        pez.setEnabled(false);
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.popcorto);
         pez.setVisibility(View.GONE);
         ball = true;
     }
 
     public void alTocarBlanquimorao(View pez){
-        //        pez.animate().alpha(1).setDuration(0).start();
-//        pez.setEnabled(false);
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.popcorto);
         pez.setVisibility(View.GONE);
         blanq = true;
     }
 
     public void alTocarCallabo(View pez){
-        //        pez.animate().alpha(1).setDuration(0).start();
-//        pez.setEnabled(false);
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.popcorto);
         pez.setVisibility(View.GONE);
         call = true;
     }
 
     public void alTocarDori(View pez){
-        //        pez.animate().alpha(1).setDuration(0).start();
-//        pez.setEnabled(false);
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.popcorto);
         pez.setVisibility(View.GONE);
         dor = true;
     }
 
     public void alTocarEstrella(View pez){
-        //        pez.animate().alpha(1).setDuration(0).start();
-//        pez.setEnabled(false);
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.popcorto);
         pez.setVisibility(View.GONE);
         estrellaBool = true;
     }
 
     public void alTocarMorao(View pez){
-        //        pez.animate().alpha(1).setDuration(0).start();
-//        pez.setEnabled(false);
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.popcorto);
         pez.setVisibility(View.GONE);
         moraoBool = true;
     }
 
     public void alTocarPayaso(View pez){
-        //        pez.animate().alpha(1).setDuration(0).start();
-//        pez.setEnabled(false);
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.popcorto);
         pez.setVisibility(View.GONE);
         payasoBool = true;
     }
 
     public void alTocarPezralla(View pez){
-        //        pez.animate().alpha(1).setDuration(0).start();
-//        pez.setEnabled(false);
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.popcorto);
         pez.setVisibility(View.GONE);
         pezrallaBool = true;
     }

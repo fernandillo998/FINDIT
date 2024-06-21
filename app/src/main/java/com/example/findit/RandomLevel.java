@@ -1,10 +1,12 @@
 package com.example.findit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class RandomLevel extends AppCompatActivity {
 
@@ -34,7 +37,6 @@ public class RandomLevel extends AppCompatActivity {
     boolean dificil;
 
     List<ImageButton> juguetes;
-    Animation animation;
 
     ImageView numerin;
     ImageView numerinNiveles;
@@ -43,17 +45,33 @@ public class RandomLevel extends AppCompatActivity {
     private int cont=9;
     private int niveles = 0;
 
+    MusicManager musicManager;
+
+    ConstraintLayout constraintLayout;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_level);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        musicManager = MusicManager.getInstance(this);
+
+        musicManager.stopMusic();
+
+        musicManager.startMusic(this,R.raw.aleatorio);
+
+        constraintLayout = findViewById(R.id.layoutAleatorio);
 
         barco = findViewById(R.id.barco);
         cubo = findViewById(R.id.cubo);
@@ -77,13 +95,9 @@ public class RandomLevel extends AppCompatActivity {
         juguetes.add(flor);
         juguetes.add(globo);
 
-//        animation = AnimationUtils.loadAnimation(this, R.anim.blink);
-//        animation.setRepeatCount(3);
-//        animation.setRepeatMode(ValueAnimator.REVERSE);
 
         randomizarPosicion(juguetes);
 
-//        aparecerJuguete(juguetes, animation);
 
         timer = new CountDownTimer(9000, 1000) {
             @Override
@@ -93,13 +107,12 @@ public class RandomLevel extends AppCompatActivity {
 
                 if(barcoBool && cuboBool && elefanteBool && florBool && globoBool){
                     niveles++;
+                    cambiarFondo(constraintLayout);
                     cambiarNumerinNiveles(niveles, numerinNiveles);
                     barcoBool = cuboBool = elefanteBool = florBool = globoBool = false;
                     randomizarPosicion(juguetes);
                     aparecerJuguete(juguetes);
                 }
-
-
             }
 
             @Override
@@ -112,10 +125,6 @@ public class RandomLevel extends AppCompatActivity {
         };
 
         timer.start();
-
-
-
-
     }
 
     public void randomizarPosicion(List<ImageButton> peces){
@@ -154,22 +163,27 @@ public class RandomLevel extends AppCompatActivity {
     }
 
     public void alTocarBarco(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         barcoBool = true;
     }
     public void alTocarCubo(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         cuboBool = true;
     }
     public void alTocarFlor(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         florBool = true;
     }
     public void alTocarElefante(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         elefanteBool = true;
     }
     public void alTocarGlobo(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         globoBool = true;
     }
@@ -247,6 +261,22 @@ public class RandomLevel extends AppCompatActivity {
                 numerinNiveles.setImageResource(R.drawable.icon);
                 break;
         }
+    }
+
+    public void cambiarFondo(ConstraintLayout constraintLayout){
+
+        String[] drawablesList = {
+                "avermovil", "aver2movil", "aver3movil", "aver4movil"
+        };
+
+        int randomIndex = new Random().nextInt(drawablesList.length);
+
+        String selectedDrawable = drawablesList[randomIndex];
+
+        int resourceId = getResources().getIdentifier(selectedDrawable, "drawable", getPackageName());
+
+        constraintLayout.setBackgroundResource(resourceId);
+
     }
 
     @SuppressLint("MissingSuperCall")

@@ -1,9 +1,11 @@
 package com.example.findit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
@@ -15,6 +17,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class RandomDificil extends AppCompatActivity {
 
@@ -48,16 +51,32 @@ public class RandomDificil extends AppCompatActivity {
     private int cont=9;
     private int niveles = 0;
 
+    MusicManager musicManager;
+
+    ConstraintLayout constraintLayout;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_dificil);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        musicManager = MusicManager.getInstance(this);
+
+        musicManager.stopMusic();
+
+        musicManager.startMusic(this,R.raw.aleatorio);
+
+        constraintLayout = findViewById(R.id.layoutDificil);
 
         barco = findViewById(R.id.barco);
         cubo = findViewById(R.id.cubo);
@@ -99,6 +118,7 @@ public class RandomDificil extends AppCompatActivity {
 
                 if(barcoBool && cuboBool && elefanteBool && florBool && globoBool && helicoptroBool && piramideBool && robotBool && tamborBool){
                     niveles++;
+                    cambiarFondo(constraintLayout);
                     cambiarNumerinNiveles(niveles, numerinNiveles);
                     barcoBool = cuboBool = elefanteBool = florBool = globoBool = helicoptroBool = piramideBool = robotBool = tamborBool = false;
                     randomizarTamaños(juguetes);
@@ -159,38 +179,47 @@ public class RandomDificil extends AppCompatActivity {
     }
 
     public void alTocarBarco(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         barcoBool = true;
     }
     public void alTocarCubo(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         cuboBool = true;
     }
     public void alTocarFlor(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         florBool = true;
     }
     public void alTocarElefante(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         elefanteBool = true;
     }
     public void alTocarGlobo(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         globoBool = true;
     }
     public void alTocarHelicoptro(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         helicoptroBool = true;
     }
     public void alTocarPiramide(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         piramideBool = true;
     }
     public void alTocarRobot(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         robotBool = true;
     }
     public void alTocarTambor(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         tamborBool = true;
     }
@@ -277,6 +306,22 @@ public class RandomDificil extends AppCompatActivity {
             params.height = 150 + (int) (Math.random() * 100) ;
             pez.setLayoutParams(params);
         }
+
+    }
+
+    public void cambiarFondo(ConstraintLayout constraintLayout){
+
+        String[] drawablesList = {
+                "avermovil", "aver2movil", "aver3movil", "aver4movil"
+        };
+
+        int randomIndex = new Random().nextInt(drawablesList.length);
+
+        String selectedDrawable = drawablesList[randomIndex];
+
+        int resourceId = getResources().getIdentifier(selectedDrawable, "drawable", getPackageName());
+
+        constraintLayout.setBackgroundResource(resourceId);
 
     }
 

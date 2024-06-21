@@ -1,18 +1,18 @@
 package com.example.findit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,16 +48,32 @@ public class RandomInfinito extends AppCompatActivity {
     CountDownTimer timer;
     private int niveles = 0;
 
+    MusicManager musicManager;
+
+    ConstraintLayout constraintLayout;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_infinito);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        musicManager = MusicManager.getInstance(this);
+
+        musicManager.stopMusic();
+
+        musicManager.startMusic(this,R.raw.modoinfinito);
+
+        constraintLayout = findViewById(R.id.layoutInfinito);
 
         barco = findViewById(R.id.barco);
         cubo = findViewById(R.id.cubo);
@@ -99,6 +115,7 @@ public class RandomInfinito extends AppCompatActivity {
 
                 if(barcoBool && cuboBool && elefanteBool && florBool && globoBool && helicoptroBool && piramideBool && robotBool && tamborBool){
                     niveles++;
+                    cambiarFondo(constraintLayout);
                     cambiarNumerinNiveles(niveles, numerinNiveles, decenasNumerinNiveles);
                     barcoBool = cuboBool = elefanteBool = florBool = globoBool = helicoptroBool = piramideBool = robotBool = tamborBool = false;
                     randomizarTamaños(juguetes);
@@ -168,38 +185,47 @@ public class RandomInfinito extends AppCompatActivity {
     }
 
     public void alTocarBarco(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         barcoBool = true;
     }
     public void alTocarCubo(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         cuboBool = true;
     }
     public void alTocarFlor(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         florBool = true;
     }
     public void alTocarElefante(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         elefanteBool = true;
     }
     public void alTocarGlobo(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         globoBool = true;
     }
     public void alTocarHelicoptro(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         helicoptroBool = true;
     }
     public void alTocarPiramide(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         piramideBool = true;
     }
     public void alTocarRobot(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         robotBool = true;
     }
     public void alTocarTambor(View juguete){
+        MusicManager.getInstance(getApplicationContext()).playButtonSound(R.raw.wood);
         juguete.setVisibility(View.GONE);
         tamborBool = true;
     }
@@ -301,13 +327,11 @@ public class RandomInfinito extends AppCompatActivity {
     public void cambiarImagen(List<ImageButton> peces){
 
         String[] drawablesList = {
-                "amarillonaranja", "ballena", "blanquimorao", "calalbo", "cero",
-                "cerocero", "cinco", "cincocinco", "cuatro",
-                "cuatrocuatro", "dori", "dos", "dosdos", "estrellazul",
-                  "moraopez", "naranja",
-                "nueve", "nuevenueve", "ocho", "ochocho", "paul", "payaso",
-                "pezazul", "pezrallas", "seis", "seiseis", "siete", "sietesiete",
-                "tres", "trestres", "uno", "unouno", "zzbarco", "zzcubo",
+                "amarillonaranja", "ballena", "blanquimorao", "calalbo",
+                "dori", "estrellazul",
+                "moraopez", "naranja",
+                "paul", "payaso",
+                "pezazul", "pezrallas", "zzbarco", "zzcubo",
                 "zzelefante", "zzflor",  "zzglobo", "zzhelicoptro",
                 "zzpiramide", "zzrobot", "zztambor"
         };
@@ -321,6 +345,22 @@ public class RandomInfinito extends AppCompatActivity {
 
             pez.setImageResource(resourceId);
         }
+    }
+
+    public void cambiarFondo(ConstraintLayout constraintLayout){
+
+        String[] drawablesList = {
+                "avermovil", "aver2movil", "aver3movil", "aver4movil"
+        };
+
+        int randomIndex = new Random().nextInt(drawablesList.length);
+
+        String selectedDrawable = drawablesList[randomIndex];
+
+        int resourceId = getResources().getIdentifier(selectedDrawable, "drawable", getPackageName());
+
+        constraintLayout.setBackgroundResource(resourceId);
+
     }
 
     @SuppressLint("MissingSuperCall")
